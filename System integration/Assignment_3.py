@@ -31,7 +31,7 @@ assign_claim_btn = driver.find_element("xpath","/html/body/div/div[1]/div[2]/div
 assign_claim_btn.click()
 time.sleep(3)
 
-emp_name = driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div")
+emp_name = driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div[1]/input")
 emp_name.send_keys("Li")
 
 
@@ -43,14 +43,26 @@ drop_dwn1 = driver.find_element("xpath", "/html/body/div/div[1]/div[2]/div[2]/di
 drop_dwn1.click()
 driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div[2]/div[4]").click()
 
-currency_list = driver.find_element("xpath", "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div/div[1]")
-currency_list.send_keys("c")
+currency_list = driver.find_element("xpath", "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div[1]/div[2]")
+currency_list.click()
+time.sleep(4)
+currency = driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div[2]/div[23]")
 
 Remarks = driver.find_element("xpath", "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div/div/div[2]/textarea")
 Remarks.send_keys("This is a claim against Form. 360")
 
 driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]").click()
-time.sleep(2)
+time.sleep(5)
+
+driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]").click()
+time.sleep(5)
+
+section_heading2 = driver.find_element("xpath","/html/body/div/div[1]/div[2]/div[2]/div/div/div[1]/h6")
+assert section_heading2.text == "Assign Claims"
+
+time.sleep(5)
 
 driver.close()
+
+print("The execution completed successfully")
 
