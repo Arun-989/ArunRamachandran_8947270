@@ -30,8 +30,7 @@ email_subject = driver.find_element(By.CSS_SELECTOR, 'input[class="rd_inp_sub rd
 email_subject.send_keys("Sample Mail send from Rediff Mail")
 # Add Body Content
 email_body = driver.find_element(By.XPATH, '/html/body')
-email_body.send_keys('This is a sample content for the mail from aram789@rediffmail.com', Keys.ENTER,
-                     'Thanks and Regards,', Keys.ENTER, 'Arun Ramachandran')
+email_body.send_keys(Keys.TAB, 'This is a sample content for the mail from aram789@rediffmail.com', Keys.ENTER, 'Thanks and Regards,', Keys.ENTER, 'Arun Ramachandran')
 time.sleep(2)
 # Send Mail
 email_send_button = driver.find_element(By.CSS_SELECTOR, 'a[class="send_ng_compo rd_btn_cmp_send"]')
@@ -48,6 +47,5 @@ time.sleep(2)
 # Logout
 logout_link = driver.find_element(By.LINK_TEXT, 'Logout')
 logout_link.click()
-time.sleep(2)
 driver.close()
 print("The execution completed successfully")
